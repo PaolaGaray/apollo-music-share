@@ -12,10 +12,10 @@ export default function Header() {
     const classes = useStyles();
 
     return (
-        <AppBar position='fixed'>
+        <AppBar position="fixed">
             <Toolbar>
                 <HeadsetTwoToneIcon />
-                <Typography className={classes.title} variant='h6' component='h1'>
+                <Typography className={classes.title} variant="h6" component="h1">
                     Apollo Music Share
                 </Typography>
             </Toolbar>
