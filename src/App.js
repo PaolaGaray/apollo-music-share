@@ -1,10 +1,19 @@
 import React from 'react';
 
+import Header from './components/Header';
+import SongList from './components/SongList';
+import SongPlayer from './components/SongPlayer';
+import AddSong from './components/AddSong';
+
+
 function App() {
   return (
-    <div>
-      Hey there!
-    </div>
+    <>
+      <Header />
+      <AddSong />
+      <SongList />
+      <SongPlayer />
+    </>
   );
 }
 
