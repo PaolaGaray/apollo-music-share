@@ -1,4 +1,5 @@
 import React from 'react';
+import { Grid } from '@material-ui/core';
 
 import Header from './components/Header';
 import SongList from './components/SongList';
@@ -10,9 +11,15 @@ function App() {
   return (
     <>
       <Header />
-      <AddSong />
-      <SongList />
-      <SongPlayer />
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={7}>
+          <AddSong />
+          <SongList />
+        </Grid>
+        <Grid item xs={12} md={5}>
+          <SongPlayer />
+        </Grid>
+      </Grid>
     </>
   );
 }
