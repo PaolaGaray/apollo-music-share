@@ -1,16 +1,14 @@
 import React from 'react';
+import { useQuery } from '@apollo/client';
 import { CircularProgress } from '@material-ui/core';
 
 import Song from './Song';
+import { GET_SONGS } from '../graphql/queries';
 
 export default function SongList() {
-    let loading = false;
 
-    const song = {
-        title: 'Micronoise @Raqpart, Budapest (16.07.2015)@',
-        artist: 'Micronoise',
-        thumbnail: 'https://i1.sndcdn.com/artworks-000124298819-zkjv66-t500x500.jpg'
-    }
+    const { loading, error, data } = useQuery(GET_SONGS);
+
 
     if(loading) {
         return (
@@ -25,12 +23,15 @@ export default function SongList() {
                 <CircularProgress />
             </div>
         )
-    }
+    };
+
+    if(error) return <div>`Error fetching songs: ${error.message}`</div>
 
     return (
-        <div>{Array.from({ length: 10 }, () => song).map((song, i) => (
-              <Song key={i} song={song}/>
-        ))}
+        <div>
+           {data.songs.map(song => (
+                <Song key={song.id} song={song}/>
+           ))}
         </div>
     );
 }
