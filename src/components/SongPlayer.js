@@ -9,7 +9,7 @@ import {
     Typography
 } from '@material-ui/core';
 
-import QueuedSongList from '../QueuedSongList'
+import QueuedSongList from './QueuedSongList'
 import { PlayArrow, SkipNext, SkipPrevious } from '@material-ui/icons';
 
 
@@ -78,7 +78,7 @@ export default function SongPlayer() {
                         step={0.01}
                     />
                 </div>
-                    <CardMedia className={classes.thumbnail} image='https://i.ytimg.com/an_webp/TAKR_6vNJR8/mqdefault_6s.webp?du=3000&sqp=CMDBh4EG&rs=AOn4CLCUOusBJADKoBkbQ9UZpWOvnT5ecg'/>
+                    <CardMedia className={classes.thumbnail} image='https://i1.sndcdn.com/artworks-000124298819-zkjv66-t500x500.jpg'/>
             </Card>
            <QueuedSongList />
         </>

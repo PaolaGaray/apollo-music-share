@@ -7,9 +7,9 @@ export default function SongList() {
     let loading = false;
 
     const song = {
-        title: 'LÜNE',
-        artist: 'MÖÖN',
-        thumbnail: 'https://i.ytimg.com/an_webp/TAKR_6vNJR8/mqdefault_6s.webp?du=3000&sqp=CMDBh4EG&rs=AOn4CLCUOusBJADKoBkbQ9UZpWOvnT5ecg'
+        title: 'Micronoise @Raqpart, Budapest (16.07.2015)@',
+        artist: 'Micronoise',
+        thumbnail: 'https://i1.sndcdn.com/artworks-000124298819-zkjv66-t500x500.jpg'
     }
 
     if(loading) {

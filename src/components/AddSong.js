@@ -54,7 +54,7 @@ export default function AddSong() {
             <DialogContent>
                 <img
                     className={classes.thumbnail}
-                    src="https://i1.sndcdn.com/artworks-000670470790-ej1gvb-t500x500.jpg"
+                    src="https://i1.sndcdn.com/artworks-000124298819-zkjv66-t500x500.jpg"
                     alt="Song thumbnail"
                 />
                 <TextField
