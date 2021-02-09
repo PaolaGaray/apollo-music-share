@@ -78,7 +78,7 @@ export default function SongPlayer() {
                         step={0.01}
                     />
                 </div>
-                    <CardMedia className={classes.thumbnail} image='https://i.ytimg.com/an_webp/--ZtUFsIgMk/mqdefault_6s.webp?du=3000&sqp=COn8hIEG&rs=AOn4CLBrRwo28tEG90gyWwAyocWkwIBM7Q'/>
+                    <CardMedia className={classes.thumbnail} image='https://i.ytimg.com/an_webp/TAKR_6vNJR8/mqdefault_6s.webp?du=3000&sqp=CMDBh4EG&rs=AOn4CLCUOusBJADKoBkbQ9UZpWOvnT5ecg'/>
             </Card>
            <QueuedSongList />
         </>

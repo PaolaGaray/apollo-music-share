@@ -38,7 +38,6 @@ export default function AddSong() {
     const classes = useStyles();
 
     const [showDialog, setShowDialog] = useState(false);
-    console.log(showDialog);
 
     const handleCloseDialog = () => {
         setShowDialog(false);
