@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import {
     Card,
     CardContent,
@@ -8,11 +8,12 @@ import {
     Slider,
     Typography
 } from '@material-ui/core';
+import { PlayArrow, SkipNext, SkipPrevious, Pause } from '@material-ui/icons';
+import { useQuery } from '@apollo/client';
+import ReactPlayer from 'react-player';
 
 import QueuedSongList from './QueuedSongList'
-import { PlayArrow, SkipNext, SkipPrevious, Pause } from '@material-ui/icons';
 import { SongContext } from '../App';
-import { useQuery } from '@apollo/client';
 import { GET_QUEUED_SONGS } from '../graphql/queries';
 
 
@@ -49,10 +50,22 @@ export default function SongPlayer() {
      const { data } = useQuery(GET_QUEUED_SONGS);
 
     const { state, dispatch } = useContext(SongContext);
+
+    const [played, setPlayed] = useState(0);
+    const [seeking, setSeeking] = useState(false);
+
     const classes = useStyles();
 
     const handleTooglePlay = () => {
         dispatch(state.isPlaying ? { type: "PAUSE_SONG" } : { type: "PLAY_SONG" });
+    };
+
+    const handleSliderChange = (event, newValue) => {
+        setPlayed(newValue);
+    };
+
+    const handleSeekMouseDown = () => {
+        setSeeking(true)
     }
 
     return (
@@ -86,8 +99,19 @@ export default function SongPlayer() {
                         min={0}
                         max={1}
                         step={0.01}
+                        value={played}
+                        onChange={handleSliderChange}
+                        onMouseDown={handleSeekMouseDown}
                     />
                 </div>
+                    <ReactPlayer
+                            url={state.song.url}
+                            hidden
+                            playing={state.isPlaying}
+                            onProgress={({ played, playedSeconds }) => {
+                                setPlayed(played);
+                            }}
+                    />
                     <CardMedia className={classes.thumbnail} image={state.song.thumbnail}/>
             </Card>
            <QueuedSongList queue={data.queue}/>
