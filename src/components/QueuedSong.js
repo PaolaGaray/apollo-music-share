@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useMutation } from 'react';
 import { Avatar, Typography, IconButton, makeStyles } from '@material-ui/core';
 import { Delete } from '@material-ui/icons';
+
+// import { ADD_OR_REMOVE_FROM_QUEUE } from '../graphql/mutations';
+
 
 const useStyles = makeStyles({
     container: {
@@ -23,12 +26,20 @@ const useStyles = makeStyles({
         textOverflow: 'elipsis',
         overflow: 'hidden'
     }
-})
+});
 
 
 export default function QueuedSong({ song }) {
+
     const classes = useStyles();
+    //useMutation(ADD_OR_REMOVE_FROM_QUEUE);
     const { thumbnail, artist, title } = song;
+
+    // function handleAddOrRemoveFromQueue() {
+    //     addOrRemoveFromQueue({
+    //             variables: { input: { ...song, __typename: 'Song' }}
+    //     })
+    // };
 
     return (
         <div className={classes.container}>
@@ -49,3 +60,5 @@ export default function QueuedSong({ song }) {
         </div>
     )
 }
+
+//                <IconButton onClick={handleAddOrRemoveFromQueue}>

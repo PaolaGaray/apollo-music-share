@@ -1,15 +1,14 @@
 import { gql } from '@apollo/client';
 
-export const GET_SONGS = gql`
-    query getSongs {
-        songs(order_by: {created_at: desc}) {
-            artist
-            duration
+export const GET_QUEUED_SONGS = gql`
+    query getQueuedSongs {
+       queue @client {
             id
-            thumbnail
             title
+            artist
+            thumbnail
+            duration
             url
-            created_at
-        }
+       }
     }
 `;
